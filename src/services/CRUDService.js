@@ -24,6 +24,7 @@ let createNewUser = async(data) => {
         }
     });
 }
+
 let hashUserPassword = (password) => {
     return new Promise(async(resolve, reject) => {
         try {
@@ -34,6 +35,7 @@ let hashUserPassword = (password) => {
         }
     });
 }
+
 let getAllUser = () => {
     return new Promise(async(resolve, reject) => {
         try {
@@ -46,7 +48,27 @@ let getAllUser = () => {
         }
     })
 }
+
+let getUserInfoId = (userId) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            let user = await db.User.findOne({
+                where: { id: userId },
+                raw: true,
+            })
+            if (user) {
+                resolve(user);
+            } else {
+                resolve([]);
+            }
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     createNewUser: createNewUser,
     getAllUser: getAllUser,
+    getUserInfoId: getUserInfoId,
 }
