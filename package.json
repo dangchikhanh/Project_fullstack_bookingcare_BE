@@ -1,5 +1,5 @@
 {
-    "name": "project_fs_bookingcare",
+    "name": "project_fs_bookingcare_be",
     "version": "1.0.0",
     "description": "Booking Care",
     "main": "server.js",
